@@ -4,7 +4,8 @@ public class League {
 
 	public static void main(String[] args) {
 
-		/*
+		/* 02.04.2018 
+		 * 
 		 * replace by at the method createTeams
 		 * 
 		 * Player player1 = new Player(); player1.playerName = "George Eliot"; Player
