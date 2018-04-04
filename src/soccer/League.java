@@ -1,5 +1,7 @@
 package soccer;
 
+import utility.GameUtils;
+
 public class League {
 
 	public static void main(String[] args) {
@@ -43,6 +45,29 @@ public class League {
 		Game[] theGames = createGames(theTeams);
 
 		Game currGame = theGames[0];
+		
+		currGame.playGame();
+		
+		System.out.println(currGame.getDescription());
+//		
+//		int numberOfGoals = (int) (Math.random()*7);
+//		System.out.println("socore "+numberOfGoals+" goals");
+//		
+//		Goal[] theGoals = new Goal [numberOfGoals];
+//		
+//		currGame.goals = theGoals;
+		
+		
+//		GameUtils.addGameGoals(currGame);
+//
+//		for (Goal currGoal: currGame.goals) {
+//			System.out.println("Goal scored after " +
+//			currGoal.theTime + " mins by " +
+//			currGoal.thePlayer.playerName +
+//			" of " + currGoal.theTeam.teamName);
+//		}
+//		
+		
 
 		System.out.println("Game 1");
 		System.out.println("Hometeam " + currGame.homeTeam.teamName + " Awayteam " + currGame.awayTeam.teamName);
@@ -60,16 +85,16 @@ public class League {
 
 		// create a goal
 
-		Goal goal1 = new Goal();
-		goal1.thePlayer = currGame.homeTeam.playerArray[2];
-		goal1.theTeam = currGame.homeTeam;
-		goal1.theTime = 55;
-
-		Goal[] theGoals = { goal1 };
-		currGame.goals = theGoals;
-
-		System.out.println("Goal scored after " + currGame.goals[0].theTime + " mins by "
-				+ currGame.goals[0].thePlayer.playerName + " of " + currGame.goals[0].theTeam.teamName);
+//		Goal goal1 = new Goal();
+//		goal1.thePlayer = currGame.homeTeam.playerArray[2];
+//		goal1.theTeam = currGame.homeTeam;
+//		goal1.theTime = 55;
+//
+//		Goal[] theGoals = { goal1 };
+//		currGame.goals = theGoals;
+//
+//		System.out.println("Goal scored after " + currGame.goals[0].theTime + " mins by "
+//				+ currGame.goals[0].thePlayer.playerName + " of " + currGame.goals[0].theTeam.teamName);
 
 		/*
 		 * 
