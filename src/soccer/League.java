@@ -4,7 +4,7 @@ public class League {
 
 	public static void main(String[] args) {
 
-		/* 02.04.2018 
+		/* 04.04.2018 @rumos
 		 * 
 		 * replace by at the method createTeams
 		 * 
