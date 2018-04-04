@@ -40,13 +40,21 @@ public class League {
 		 * System.out.println(thePlayer.playerName); }
 		 */
 
-		Team[] theTeams = createTeams();
+		
+		// make  leagues a instance
+		
+		League theLeague = new League();
+		
+	
+		Team[] theTeams = theLeague.createTeams();
 
-		Game[] theGames = createGames(theTeams);
+		Game[] theGames = theLeague.createGames(theTeams);
 
+		// exercise 8.2 
+		
 		Game currGame = theGames[0];
 		
-		currGame.playGame();
+		currGame.playGame(3);
 		
 		System.out.println(currGame.getDescription());
 //		
@@ -69,19 +77,19 @@ public class League {
 //		
 		
 
-		System.out.println("Game 1");
-		System.out.println("Hometeam " + currGame.homeTeam.teamName + " Awayteam " + currGame.awayTeam.teamName);
-
-		System.out.println("");
-		System.out.println(currGame.homeTeam.teamName);
-		for (Player thePlayerName : currGame.homeTeam.playerArray) {
-			System.out.println(thePlayerName.playerName);
-		}
-		System.out.println("");
-		System.out.println(currGame.awayTeam.teamName);
-		for (Player thePlayerName : currGame.awayTeam.playerArray) {
-			System.out.println(thePlayerName.playerName);
-		}
+//		System.out.println("Game 1");
+//		System.out.println("Hometeam " + currGame.homeTeam.teamName + " Awayteam " + currGame.awayTeam.teamName);
+//
+//		System.out.println("");
+//		System.out.println(currGame.homeTeam.teamName);
+//		for (Player thePlayerName : currGame.homeTeam.playerArray) {
+//			System.out.println(thePlayerName.playerName);
+//		}
+//		System.out.println("");
+//		System.out.println(currGame.awayTeam.teamName);
+//		for (Player thePlayerName : currGame.awayTeam.playerArray) {
+//			System.out.println(thePlayerName.playerName);
+//		}
 
 		// create a goal
 
@@ -151,7 +159,7 @@ public class League {
 		 **/
 	}
 
-	public static Team[] createTeams() {
+	public  Team[] createTeams() {
 
 		Team team1 = new Team();
 		team1.teamName = "The Greens";
@@ -201,7 +209,7 @@ public class League {
 
 	}
 
-	public static Game[] createGames(Team[] theTeams) {
+	public Game[] createGames(Team[] theTeams) {
 
 		Game theGame = new Game();
 
