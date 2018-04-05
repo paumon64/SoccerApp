@@ -19,7 +19,7 @@ public class Game {
 	
 	}
 	
-	// overloading methods
+	// overloading method playGame 8.3 exercise
 	
 	public void playGame() {
 		
@@ -32,9 +32,9 @@ public class Game {
 		
 		for (Goal currGoal: this.goals) {
 			returnString.append("Goal scored after " +
-			currGoal.theTime + " mins by " +
-			currGoal.thePlayer.playerName +
-			" of " + currGoal.theTeam.teamName+"\n");
+			currGoal.getTheTime() + " mins by " +
+			currGoal.getThePlayer().getPlayerName() +
+			" of " + currGoal.getTheTeam().getTeamName()+"\n");
 			
 		}
 		
