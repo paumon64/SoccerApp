@@ -46,18 +46,24 @@ public class League {
 		League theLeague = new League();
 		
 	
-		Team[] theTeams = theLeague.createTeams();
-		Game[] theGames = theLeague.createGames(theTeams);
+		Team[] teams = theLeague.createTeams();
+		Game[] theGames = theLeague.createGames(teams);
 
 		// exercise 8.2 
 		
-		Game currGame = theGames[0];
+		// Game currGame = theGames[0];
 		
-		currGame.playGame(3);
-		System.out.println(currGame.getDescription());
+		// currGame.playGame(3);
+		
+		for (Game currGame : theGames) {
+			currGame.playGame();
+			System.out.println("Game");
+			System.out.println(currGame.getDescription());
+		}
+
 //		
 //		int numberOfGoals = (int) (Math.random()*7);
-//		System.out.println("socore "+numberOfGoals+" goals");
+//		System.out.println("score "+numberOfGoals+" goals");
 //		
 //		Goal[] theGoals = new Goal [numberOfGoals];
 //		
@@ -216,18 +222,18 @@ public class League {
 //
 //		team3.playerArray = thePlayers3;
 
-		Team[] theTeams = { team1, team2};
+		Team[] teams = { team1, team2};
 
-		return theTeams;
+		return teams;
 
 	}
 
-	public Game[] createGames(Team[] theTeams) {
+	public Game[] createGames(Team[] teams) {
 
-		Game theGame = new Game();
+		Game theGame = new Game(teams[0],teams[1]);
 
-		theGame.homeTeam = theTeams[0];
-		theGame.awayTeam = theTeams[1];
+//		theGame.homeTeam = theTeams[0];
+//		theGame.awayTeam = theTeams[1];
 
 		Game[] theGames = { theGame };
 		return theGames;

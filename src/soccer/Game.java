@@ -4,9 +4,17 @@ import utility.GameUtils;
 
 public class Game {
 	
-	public Team homeTeam;
-	public Team awayTeam;
-	public Goal[] goals;
+	private Team homeTeam;
+	private Team awayTeam;
+	private Goal[] goals;
+	
+	public Game(Team homeTeam, Team awayTeam) {
+		
+		this.homeTeam=homeTeam;
+		this.awayTeam=awayTeam;
+	}
+	
+	
 
 	public void playGame(int maxGoals) {
 
@@ -14,7 +22,7 @@ public class Game {
 		System.out.println("score "+numberOfGoals+" goals");
 		
 		Goal[] theGoals = new Goal [numberOfGoals];	
-		this.goals = theGoals;		
+		this.setGoals(theGoals);		
 		GameUtils.addGameGoals(this);
 	
 	}
@@ -30,7 +38,7 @@ public class Game {
 		
 		StringBuilder returnString = new StringBuilder();
 		
-		for (Goal currGoal: this.goals) {
+		for (Goal currGoal: this.getGoals()) {
 			returnString.append("Goal scored after " +
 			currGoal.getTheTime() + " mins by " +
 			currGoal.getThePlayer().getPlayerName() +
@@ -39,6 +47,18 @@ public class Game {
 		}
 		
 		return returnString.toString();
+	}
+
+
+
+	public Goal[] getGoals() {
+		return goals;
+	}
+
+
+
+	public void setGoals(Goal[] goals) {
+		this.goals = goals;
 	}
 	
 }

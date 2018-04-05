@@ -5,6 +5,8 @@ public class Team {
 	private String teamName;
 	private Player[] playerArray;
 	
+	// construtor de teams s/ players
+	
 	 public Team(String teamName) {
 	        this.teamName = teamName;
 	    }

@@ -20,21 +20,21 @@ public class GameUtils {
 
     public static void addGameGoals(Game currGame) {
 
-        if (currGame.goals == null) {
-            currGame.goals = new Goal[(int) (Math.random() * 10)];   // If goals not initialized max will be 9
+        if (currGame.getGoals() == null) {
+            currGame.setGoals(new Goal[(int) (Math.random() * 10)]);   // If goals not initialized max will be 9
         }
 
         //System.out.println(currGame.goals.length);
         int i = 0;
-        for (Goal currGoal : currGame.goals) {
+        for (Goal currGoal : currGame.getGoals()) {
             currGoal = new Goal();
             currGoal.setTheTeam(Math.random() > 0.5 ? getHomeTeam(currGame, "home") : getHomeTeam(currGame, "away"));
             currGoal.setThePlayer(currGoal.getTheTeam().getPlayerArray()[(int) (Math.random() * currGoal.getTheTeam().getPlayerArray().length)]);
             currGoal.setTheTime((int) (Math.random() * 90));
-            currGame.goals[i] = currGoal;
+            currGame.getGoals()[i] = currGoal;
             i++;
         }
-        Arrays.sort(currGame.goals, (g1, g2) -> Double.valueOf(g1.getTheTime()).compareTo(Double.valueOf(g2.getTheTime())));
+        Arrays.sort(currGame.getGoals(), (g1, g2) -> Double.valueOf(g1.getTheTime()).compareTo(Double.valueOf(g2.getTheTime())));
 
     }
 
