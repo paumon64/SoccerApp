@@ -63,7 +63,10 @@ public class League {
 
 		for (Game currGame : theGames) {
 			currGame.playGame();
+		
 			System.out.println(currGame.getDescription());
+		
+		
 		}
 
 		//
@@ -167,7 +170,7 @@ public class League {
 		 * 
 		 **/
 
-		theLeague.showBestTeam(theTeams);
+	//	theLeague.showBestTeam(theTeams);
 	}
 
 	public void showBestTeam(Team[] theTeams) {

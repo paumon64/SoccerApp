@@ -1,7 +1,9 @@
 package soccer;
 
+import java.awt.Event;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import utility.GameUtils;
 
@@ -11,7 +13,6 @@ public class Game {
 	private Team awayTeam;
 	private Goal[] goals;
 	private LocalDateTime theDateTime;
-	
 
 	public Game(Team homeTeam, Team awayTeam, LocalDateTime theDateTime) {
 
@@ -20,7 +21,6 @@ public class Game {
 		this.theDateTime = theDateTime;
 	}
 
-	
 	public void playGame(int maxGoals) {
 
 		int numberOfGoals = (int) (Math.random() * (maxGoals + 1));
@@ -35,55 +35,69 @@ public class Game {
 
 	public void playGame() {
 
-		playGame(6);
+		// playGame(6);
+
+		ArrayList<Goal> eventList = new ArrayList();
+
+		Goal currEvent;
+
+		for (int i = 1; i <= 90; i++) {
+			if (Math.random() > 0.95) {
+
+				currEvent = new Goal();
+				currEvent.setTheTeam(Math.random() > 0.5 ? homeTeam : awayTeam);
+				currEvent.setThePlayer(currEvent.getTheTeam()
+						.getPlayerArray()[(int) (Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
+				currEvent.setTheTime(i);
+				eventList.add(currEvent);
+			}
+		}
+		this.goals = new Goal[eventList.size()];
+		eventList.toArray(goals);
 	}
 
 	public String getDescription() {
-		
+
 		int homeTeamGoals = 0;
 		int awayTeamGoals = 0;
-		
-		
+
 		StringBuilder returnString = new StringBuilder();
-		
-		returnString.append(homeTeam.getTeamName() + " vs. " + awayTeam.getTeamName() +
-		"Date "+this.theDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE)+ "\n");
-		
-		for (Goal currGoal: this.getGoals()) {
-			returnString.append("Goal scored after " +
-			currGoal.getTheTime() + " mins by " +
-			currGoal.getThePlayer().getPlayerName() +
-			" of " + currGoal.getTheTeam().getTeamName()+"\n");
-			
-			if (currGoal.getTheTeam()== homeTeam) {
+		System.out.println("");
+		returnString.append(homeTeam.getTeamName() + " vs. " + awayTeam.getTeamName() + "Date "
+				+ this.theDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
+
+		for (Goal currGoal : this.getGoals()) {
+			returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
+					+ currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
+
+			if (currGoal.getTheTeam() == homeTeam) {
 				homeTeamGoals++;
-			}
-			else
+			} else
 				awayTeamGoals++;
-			
+
 		}
-		
+
 		if (homeTeamGoals == awayTeamGoals) {
-			
+
 			returnString.append("It's a draw!");
 			homeTeam.incPointsTotal(1);
 			awayTeam.incPointsTotal(1);
-			
-			}
-				else if (homeTeamGoals > awayTeamGoals) {
-				
-				returnString.append(returnString.append(homeTeam.getTeamName()+ " win"));
-				homeTeam.incPointsTotal(2);
+
+		} else if (homeTeamGoals > awayTeamGoals) {
+
+			returnString.append(returnString.append(homeTeam.getTeamName() + " win"));
+			homeTeam.incPointsTotal(2);
 		}
-		
+
 		else {
-			returnString.append(returnString.append(awayTeam.getTeamName()+ " win"));
+			returnString.append(returnString.append(awayTeam.getTeamName() + " win"));
 			awayTeam.incPointsTotal(2);
-			}
-		returnString.append(" ("+ homeTeamGoals + " - " +awayTeamGoals + ") \n");
+		}
+
+		System.out.println("");
+		returnString.append(" (" + homeTeamGoals + " - " + awayTeamGoals + ") \n");
 		return returnString.toString();
 	}
-	
 
 	public Goal[] getGoals() {
 		return goals;
@@ -109,9 +123,8 @@ public class Game {
 		this.homeTeam = homeTeam;
 	}
 
-
 	public LocalDateTime getTheDateTime() {
-	
+
 		return LocalDateTime.now();
 	}
 

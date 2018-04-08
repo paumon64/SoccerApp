@@ -5,6 +5,8 @@ public class Goal {
 	private Team theTeam;
 	private Player thePlayer;
 	private double theTime;
+	
+	
 	public Team getTheTeam() {
 		return theTeam;
 	}
@@ -23,6 +25,5 @@ public class Goal {
 	public void setTheTime(double theTime) {
 		this.theTime = theTime;
 	}
-	
 	
 }
