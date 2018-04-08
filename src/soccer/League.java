@@ -1,5 +1,6 @@
 package soccer;
 
+import java.time.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -57,6 +58,8 @@ public class League {
 		// Game currGame = theGames[0];
 
 		// currGame.playGame(3);
+		
+		System.out.println(theLeague.getLeagueAnnouncement(theGames));
 
 		for (Game currGame : theGames) {
 			currGame.playGame();
@@ -263,17 +266,29 @@ public class League {
 
 		// complete championship
 
-		ArrayList<Game> theGames = new ArrayList();
+		ArrayList<Game> theGames = new ArrayList<Game>();
+
+		int daysBetweenGames = 0;
 
 		for (Team homeTeam : theTeams) {
 			for (Team awayTeam : theTeams) {
 				if (homeTeam != awayTeam) {
-					theGames.add(new Game(homeTeam, awayTeam));
+					daysBetweenGames += 7;
+					theGames.add(new Game(homeTeam, awayTeam, LocalDateTime.now().plusDays(daysBetweenGames)));
 				}
 			}
 		}
-
 		return (Game[]) theGames.toArray(new Game[1]);
+	}
+
+	public String getLeagueAnnouncement(Game[] theGames) {
+
+		Period thePeriod = Period.between(theGames[0].getTheDateTime().toLocalDate(),
+				theGames[theGames.length - 1].getTheDateTime().toLocalDate());
+		
+		return "The League is scheduled to run for " +
+		thePeriod.getMonths() + " month(s), and " +
+		thePeriod.getDays() + " day(s)\n";
 
 	}
 
