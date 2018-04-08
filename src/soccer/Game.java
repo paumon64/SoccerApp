@@ -10,8 +10,8 @@ public class Game {
 	
 	public Game(Team homeTeam, Team awayTeam) {
 		
-		this.homeTeam=homeTeam;
-		this.awayTeam=awayTeam;
+		this.setHomeTeam(homeTeam);
+		this.setAwayTeam(awayTeam);
 	}
 	
 	
@@ -59,6 +59,30 @@ public class Game {
 
 	public void setGoals(Goal[] goals) {
 		this.goals = goals;
+	}
+
+
+
+	public Team getAwayTeam() {
+		return awayTeam;
+	}
+
+
+
+	public void setAwayTeam(Team awayTeam) {
+		this.awayTeam = awayTeam;
+	}
+
+
+
+	public Team getHomeTeam() {
+		return homeTeam;
+	}
+
+
+
+	public void setHomeTeam(Team homeTeam) {
+		this.homeTeam = homeTeam;
 	}
 	
 }
