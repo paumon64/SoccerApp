@@ -26,8 +26,8 @@ public class Game {
 		int numberOfGoals = (int) (Math.random() * (maxGoals + 1));
 		System.out.println("score " + numberOfGoals + " goals");
 
-		Goal[] theGoals = new Goal[numberOfGoals];
-		this.setGoals(theGoals);
+		GameEvent[] theGoals = new Goal[numberOfGoals];
+		this.setEvents(theGoals);
 		GameUtils.addGameGoals(this);
 	}
 
@@ -37,15 +37,18 @@ public class Game {
 
 		// playGame(6);
 
-		ArrayList<Goal> eventList = new ArrayList();
+		ArrayList<GameEvent> eventList = new ArrayList();
 
-		Goal currEvent;
+		GameEvent currEvent;
 
 		for (int i = 1; i <= 90; i++) {
 			if (Math.random() > 0.95) {
 
-				currEvent = new Goal();
-				currEvent.setTheTeam(Math.random() > 0.5 ? homeTeam : awayTeam);
+				// currEvent = new Goal();
+				// currEvent.setTheTeam(Math.random() > 0.5 ? homeTeam : awayTeam);
+
+				currEvent = Math.random() > 0.6 ? new Goal() : new Possession();
+
 				currEvent.setThePlayer(currEvent.getTheTeam()
 						.getPlayerArray()[(int) (Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
 				currEvent.setTheTime(i);
@@ -66,9 +69,14 @@ public class Game {
 		returnString.append(homeTeam.getTeamName() + " vs. " + awayTeam.getTeamName() + "Date "
 				+ this.theDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + "\n");
 
-		for (Goal currGoal : this.getGoals()) {
-			returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by "
-					+ currGoal.getThePlayer().getPlayerName() + " of " + currGoal.getTheTeam().getTeamName() + "\n");
+		for (GameEvent currGoal : this.getGoals()) {
+			// returnString.append("Goal scored after " + currGoal.getTheTime() + " mins by
+			// "
+			// + currGoal.getThePlayer().getPlayerName() + " of " +
+			// currGoal.getTheTeam().getTeamName() + "\n");
+
+			returnString.append(currEvent + "after " + currEvent.getTheTime() + " mins by "
+					+ currEvent.getThePlayer().getPlayerName() + " of " + currEvent.getTheTeam().getTeamName() + "\n");
 
 			if (currGoal.getTheTeam() == homeTeam) {
 				homeTeamGoals++;
@@ -99,12 +107,12 @@ public class Game {
 		return returnString.toString();
 	}
 
-	public Goal[] getGoals() {
+	public GameEvent[] getGoals() {
 		return goals;
 	}
 
-	public void setGoals(Goal[] goals) {
-		this.goals = goals;
+	public void setEvents(GameEvent[] gameEvent) {
+		this.GameEvent[] = gameEvent;
 	}
 
 	public Team getAwayTeam() {
