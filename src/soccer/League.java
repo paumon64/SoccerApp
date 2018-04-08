@@ -1,6 +1,7 @@
 package soccer;
 
 import utility.GameUtils;
+import utility.PlayerDatabase;
 
 public class League {
 
@@ -186,37 +187,39 @@ public class League {
 	
 	
 	public Team[] createTeams() {
+		
+		PlayerDatabase playerDB = new PlayerDatabase();
 
 		// Team team1 = new Team();
 		// team1.teamName = "The Greens";
 
-		Player player1 = new Player("George Eliot");
-		// player1.playerName = "George Eliot";
-		Player player2 = new Player("Graham Greene");
-		// player2.playerName = ;
-		Player player3 = new Player("Geoffrey Chaucer");
-		// player3.playerName = "Geoffrey Chaucer";
+//		Player player1 = new Player("George Eliot");
+//		// player1.playerName = "George Eliot";
+//		Player player2 = new Player("Graham Greene");
+//		// player2.playerName = ;
+//		Player player3 = new Player("Geoffrey Chaucer");
+//		// player3.playerName = "Geoffrey Chaucer";
+//
+//		Player[] thePlayers = { player1, player2, player3 };
 
-		Player[] thePlayers = { player1, player2, player3 };
-
-		Team team1 = new Team("The Greens", thePlayers);
+		Team team1 = new Team("The Greens", playerDB.getTeam(3));
 
 		// team1.playerArray = thePlayers;
 
 		// player1.playerName = "Robert Service";
 
-		Team team2 = new Team();
-		// team2.teamName = "The Reds";
-		// team2.playerArray = new Player[3];
-
-		team2.setTeamName("The Reds");
-		team2.setPlayerArray(new Player[3]);
-		team2.getPlayerArray()[0] = new Player("Robert Service");
-		// team2.playerArray[0].playerName = "Robert Service";
-		team2.getPlayerArray()[1] = new Player("Robbie Burns");
-		// team2.playerArray[1].playerName = "Robbie Burns";
-		team2.getPlayerArray()[2] = new Player("Rafael Sabatini");
-		// team2.playerArray[2].playerName = "Rafael Sabatini";
+//		Team team2 = new Team();
+//		// team2.teamName = "The Reds";
+//		// team2.playerArray = new Player[3];
+//
+//		team2.setTeamName("The Reds");
+//		team2.setPlayerArray(new Player[3]);
+//		team2.getPlayerArray()[0] = new Player("Robert Service");
+//		// team2.playerArray[0].playerName = "Robert Service";
+//		team2.getPlayerArray()[1] = new Player("Robbie Burns");
+//		// team2.playerArray[1].playerName = "Robbie Burns";
+//		team2.getPlayerArray()[2] = new Player("Rafael Sabatini");
+//		// team2.playerArray[2].playerName = "Rafael Sabatini";
 
 		// Team team3 = new Team();
 		// team3.teamName = "The Blues";
@@ -237,6 +240,9 @@ public class League {
 		//
 		// team3.playerArray = thePlayers3;
 
+		
+		Team team2 = new Team("The Reds", playerDB.getTeam(3));
+		
 		Team[] teams = { team1, team2 };
 
 		return teams;
