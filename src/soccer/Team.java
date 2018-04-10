@@ -2,53 +2,64 @@ package soccer;
 
 public class Team {
 
-	private String teamName;
-	private Player[] playerArray;
+    private String teamName;
+    private  Player [] playerArray;
+    private int pointsTotal;
+    private int goalsTotal;
+	public int  getGoalsTotal;
+    
+   
+    
+    public Team (String teamName) {
+    	this.teamName = teamName;
+    }
+    
+    public Team (String teamName, Player[] players) {
+    	this(teamName);
+    	this.playerArray = players;
+    }
+   
+    public Team() {
+    	
+    }
+    
+    
+    
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	public Player [] getPlayerArray() {
+		return playerArray;
+	}
+	public void setPlayerArray(Player [] playerArray) {
+		this.playerArray = playerArray;
+	}
+	public void incPointsTotal(int pointsTotal){
+    	this.pointsTotal += pointsTotal;
+    }   
 	
-	private int pointsTotal;
-	
-	
-	public void incPointsTotal(int pointsTotal) {
-		
-		this.setPointsTotal(this.getPointsTotal() + pointsTotal);
+	public int getPointsTotal() {
+		return pointsTotal;
+	}
+
+	@SuppressWarnings("unused")
+	private void setPointsTotal(int pointsTotal) {
+		this.pointsTotal = pointsTotal;
 	}
 	
-	// construtor de teams s/ players
-	
-	 public Team(String teamName) {
-	        this.teamName = teamName;
-	    }
-	    
-	    public Team(String teamName, Player[] players) {
-	        this(teamName);
-	        this.playerArray = players;
-	    }
-	    
-	    public Team() {}
+	public void incGoalsTotal(int goals) {
+		this.goalsTotal += goals;
+	}
 
-		public String getTeamName() {
-			return teamName;
-		}
+	public int getGoalsTotal() {
+		return goalsTotal;
+	}
 
-		public void setTeamName(String teamName) {
-			this.teamName = teamName;
-		}
+	private void setGoalsTotal(int goalsTotal) {
+		this.goalsTotal = goalsTotal;
+	}
 
-		public Player[] getPlayerArray() {
-			return playerArray;
-		}
-
-		public void setPlayerArray(Player[] playerArray) {
-			this.playerArray = playerArray;
-		}
-
-		public int getPointsTotal() {
-			return pointsTotal;
-		}
-
-		public void setPointsTotal(int pointsTotal) {
-			this.pointsTotal = pointsTotal;
-		}
-	    
-	    
 }

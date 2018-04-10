@@ -6,7 +6,6 @@ public abstract class GameEvent {
 	private Player thePlayer;
 	private double theTime;
 	
-
 	public Team getTheTeam() {
 		return theTeam;
 	}
