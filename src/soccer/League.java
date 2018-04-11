@@ -82,7 +82,7 @@ public class League {
 
 		System.out.println("Winner of the League is : " + currBestTeam.getTeamName());
 		System.out.println(currBestTeam.getTeamName() + ":" + "\tTotal points: " + currBestTeam.getPointsTotal()
-				+ " \tTotal Goals: " + currBestTeam.getGoalsTotal);
+				+ " \tTotal Goals: " + currBestTeam.getGoalsTotal());
 
 	}
 	public String getLeagueAnnouncement(Game[] theGames){

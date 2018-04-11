@@ -6,7 +6,7 @@ public class Team {
     private  Player [] playerArray;
     private int pointsTotal;
     private int goalsTotal;
-	public int  getGoalsTotal;
+	private int  getGoalsTotal;
     
    
     
