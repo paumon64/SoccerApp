@@ -29,15 +29,17 @@ public class Game {
 	public void playGame() {
 		// playGame(6);
 
-		ArrayList<Goal> eventList = new ArrayList<>();
-		Goal currEvent;
+		ArrayList<GameEvent> eventList = new ArrayList<>();
+		GameEvent currEvent;
 
 		for (int i = 1; i <= 90; i++) {
 
 			if (Math.random() > 0.95) {
 				//System.out.println(i);
-				currEvent = new Goal();
+				currEvent = Math.random()>0.6 ? new Goal(): new Possession();
+				
 				currEvent.setTheTeam(Math.random() > 0.5 ? homeTeam : awayTeam);
+				
 				currEvent.setThePlayer(currEvent.getTheTeam()
 						.getPlayerArray()[(int) (Math.random() * currEvent.getTheTeam().getPlayerArray().length)]);
 				currEvent.setTheTime(i);
@@ -45,7 +47,7 @@ public class Game {
 			}
 
 		}
-		this.gameEvent = new Goal[eventList.size()];
+		this.gameEvent = new GameEvent[eventList.size()];
 		eventList.toArray(gameEvent);
 	}
 
@@ -65,7 +67,7 @@ public class Game {
 				awayTeamGoals++;
 				awayTeam.incGoalsTotal(1);
 			}
-			returnString.append("Goal scored after " + currGameEvent.getTheTime() + " mins by "
+			returnString.append(currGameEvent+" after " + currGameEvent.getTheTime() + " mins by "
 					+ currGameEvent.getThePlayer().getPlayerName() + " of " + currGameEvent.getTheTeam().getTeamName() + "\n");
 		}
 		if (homeTeamGoals == awayTeamGoals) {
